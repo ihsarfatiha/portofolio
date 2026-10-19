@@ -52,7 +52,6 @@ export const profil = {
 export const angka = [
   { nilai: '3,69', label: 'IPK dari 4,00' },
   { nilai: '5', label: 'proyek publik' },
-  { nilai: '253.680', label: 'rekam medis dalam satu model' },
   { nilai: '12', label: 'sertifikat & pelatihan' },
 ]
 

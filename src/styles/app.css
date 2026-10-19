@@ -329,11 +329,12 @@
 }
 
 .angka {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Kedua baris dibuat sama tinggi, supaya label yang panjangnya beda tidak
-     membuat barisnya jadi tidak sama besar. */
-  grid-auto-rows: 1fr;
+  /* Fleksibel, bukan jumlah kolom yang dipatok. Berapa pun jumlah angkanya,
+     semuanya mengisi satu baris penuh — jadi tidak pernah ada sel kosong
+     yang menganggur di pojok, dan tidak perlu diubah saat Anda menambah atau
+     mengurangi satu angka. */
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   background: var(--panel);
   border-top: 1px solid var(--line-soft);
@@ -343,6 +344,7 @@
 }
 
 .angka__sel {
+  flex: 1 1 110px;
   padding: var(--s4) var(--s5) var(--s5);
   box-shadow: inset -1px -1px 0 var(--line-soft);
 }
