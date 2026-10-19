@@ -22,11 +22,10 @@ export const profil = {
   // Sebutan singkat yang muncul di bawah nama.
   peran: 'Data Science & Machine Learning',
 
-  judul:
-    'Saya mengolah data besar dan citra satelit, dari data mentah sampai model yang teruji.',
+  judul: 'Saya mengawal proyek dari data mentah sampai jadi model yang teruji.',
 
   ringkas:
-    'Mahasiswa Informatika Universitas Mercu Buana, semester 7, IPK 3,69. Lima proyek publik: peringatan dini kebakaran lahan gambut dengan PySpark, pipeline prediksi gaji dan jenis kerja dari 123.849 lowongan LinkedIn, perbandingan empat model risiko diabetes pada 253.680 rekam medis, WebGIS zonasi konservasi situs candi, dan satu aplikasi web sewa kendaraan. Mencari magang di bidang data dan AI.',
+    'Mahasiswa Informatika Universitas Mercu Buana, semester 7. Selama kuliah saya mengerjakan proyek di beberapa bidang sekaligus — data science, machine learning, big data, NLP, sistem informasi geografis, sampai computer vision. Saya terbiasa menjelaskan temuan teknis dengan gamblang, dalam bahasa Indonesia maupun Inggris. Sekarang saya mencari magang di bidang data dan AI.',
 
   // FOTO: taruh berkasnya di folder `public`, lalu tulis "foto.jpg".
   // Selama masih penanda, yang tampil adalah monogram inisial Anda.
@@ -58,8 +57,8 @@ export const angka = [
 ]
 
 export const tentang = [
-  'Saya mahasiswa Informatika Universitas Mercu Buana, sekarang semester 7 dengan IPK 3,69. Bidang yang saya tekuni saling beririsan: data science, machine learning, big data, natural language processing, sistem informasi geografis, dan computer vision. Saya terbiasa membawa satu proyek dari data mentah sampai model yang dievaluasi — termasuk memilih fitur, menangani kelas yang tidak seimbang, dan mengukur hasilnya dengan metrik yang jujur, bukan hanya angka akurasi.',
-  'Di luar perkuliahan saya ikut menjalankan usaha ritel keluarga. Dari situ saya belajar membaca data dari sisi keputusan usaha, bukan hanya dari sisi modelnya. Saya juga aktif di Mercu Buana English Club dan terbiasa menyampaikan temuan teknis dalam bahasa Indonesia maupun Inggris. Saat ini saya mencari magang di bidang data dan AI.',
+  'Yang paling sering saya kerjakan justru bagian yang tidak kelihatan: merapikan data, memilih fitur yang benar-benar berguna, menangani kelas data yang tidak seimbang, dan mengukur hasil dengan metrik yang jujur — bukan sekadar angka akurasi yang terlihat bagus.',
+  'Di luar perkuliahan saya ikut menjalankan usaha ritel keluarga, dan aktif di Mercu Buana English Club. Dari usaha keluarga itu saya belajar membaca data dari sisi keputusan usaha, bukan hanya dari sisi modelnya.',
 ]
 
 export const pendidikan = [
