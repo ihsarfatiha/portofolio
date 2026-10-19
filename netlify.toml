@@ -1,0 +1,12 @@
+# Konfigurasi penerbitan di Netlify.
+#
+# Netlify biasanya sudah bisa menebak nilai-nilai ini sendiri, tapi ditulis
+# eksplisit supaya penerbitan tidak bergantung pada tebakan. Versi Node dikunci
+# agar hasil build di Netlify sama dengan hasil build di komputer Anda.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

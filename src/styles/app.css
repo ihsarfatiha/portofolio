@@ -1,0 +1,1037 @@
+/* ==========================================================================
+   Tata letak & komponen
+   ========================================================================== */
+
+.shell {
+  width: 100%;
+  max-width: var(--w);
+  margin-inline: auto;
+  padding-inline: var(--s5);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding-inline: var(--s4);
+  }
+}
+
+/* ================================== NAV ================================== */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .nav {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.nav__in {
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  min-height: var(--nav-h);
+}
+
+.nav__merek {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav__nama {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.nav__peran {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--teal);
+}
+
+.nav__tautan {
+  margin-left: auto;
+  display: flex;
+  gap: var(--s2);
+  list-style: none;
+}
+
+.nav__tautan a {
+  display: block;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  padding: var(--s2) var(--s3);
+  border-radius: var(--radius);
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.nav__tautan a:hover {
+  color: var(--ink);
+  background: var(--panel-2);
+}
+
+/* Bagian yang sedang dilihat penanda halaman. */
+.nav__tautan a[aria-current='true'] {
+  color: var(--bg);
+  background: var(--ember);
+  font-weight: 500;
+}
+
+.nav__tombol {
+  display: none;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.nav__tombol:hover {
+  border-color: #3c423d;
+}
+
+.nav__panel {
+  display: none;
+  border-top: 1px solid var(--line-soft);
+  padding-block: var(--s2) var(--s4);
+}
+
+.nav__panel ul {
+  list-style: none;
+  display: grid;
+}
+
+.nav__panel a {
+  display: block;
+  padding: var(--s3) var(--s2);
+  text-decoration: none;
+  color: var(--ink-2);
+  font-size: var(--fs-lead);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.nav__panel a:hover {
+  color: var(--ink);
+}
+
+/* Teks peran di samping nama dilepas lebih dulu: menu yang harus tetap
+   terbaca lebih penting. Dengan begitu menu utuh masih muat sampai sekitar
+   900 px, dan sebelumnya di kisaran 1000–1060 px nav-nya meluber sehingga
+   muncul batang geser mendatar. */
+@media (max-width: 1100px) {
+  .nav__peran {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav__tautan {
+    display: none;
+  }
+
+  .nav__tombol {
+    display: flex;
+  }
+
+  .nav__panel[data-terbuka='true'] {
+    display: block;
+  }
+}
+
+/* ================================== HERO ================================= */
+
+.hero {
+  padding-block: var(--s8) var(--s7);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: var(--s8);
+  align-items: start;
+}
+
+.hero__sapaan {
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--teal);
+  margin-bottom: var(--s3);
+}
+
+.hero__nama {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.hero__peran {
+  margin-top: var(--s3);
+  font-family: var(--mono);
+  font-size: var(--fs-lead);
+  color: var(--ember);
+}
+
+.hero__judul {
+  margin-top: var(--s5);
+  max-width: 46ch;
+  font-size: var(--fs-lead);
+  color: var(--ink);
+}
+
+.hero__ringkas {
+  margin-top: var(--s4);
+  max-width: 56ch;
+  color: var(--ink-2);
+}
+
+.aksi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.hero__aksi {
+  margin-top: var(--s6);
+}
+
+.hero__sosial {
+  margin-top: var(--s5);
+  display: flex;
+  gap: var(--s2);
+  list-style: none;
+}
+
+/* Kartu tombol ikon sosial. */
+.ikon-tombol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.ikon-tombol:hover {
+  color: var(--ink);
+  border-color: #3c423d;
+  background: var(--panel-2);
+}
+
+.foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 320px;
+  margin-inline: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  overflow: hidden;
+  box-shadow: 0 0 0 8px rgba(110, 156, 147, 0.06);
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto__monogram {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-family: var(--mono);
+  font-size: clamp(2rem, 1rem + 4vw, 3rem);
+  letter-spacing: 0.1em;
+  color: var(--teal);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-block: var(--s7);
+  }
+
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s7);
+  }
+
+  /* Di ponsel, foto tampil lebih dulu supaya wajah terlihat langsung. */
+  .hero__grid > .hero__teks {
+    order: 2;
+  }
+
+  .foto {
+    max-width: 240px;
+  }
+}
+
+/* ================================ BAGIAN ================================= */
+
+.bagian {
+  padding-block: var(--s7);
+  border-top: 1px solid var(--line-soft);
+}
+
+.bagian__kepala {
+  margin-bottom: var(--s6);
+}
+
+.bagian__judul {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
+}
+
+.bagian__keterangan {
+  margin-top: var(--s2);
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+/* =============================== TENTANG ================================= */
+
+.tentang {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s6) var(--s8);
+  align-items: start;
+}
+
+.tentang p + p {
+  margin-top: var(--s4);
+}
+
+.tentang p {
+  color: var(--ink-2);
+}
+
+.angka {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Kedua baris dibuat sama tinggi, supaya label yang panjangnya beda tidak
+     membuat barisnya jadi tidak sama besar. */
+  grid-auto-rows: 1fr;
+  list-style: none;
+  background: var(--panel);
+  border-top: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.angka__sel {
+  padding: var(--s4) var(--s5) var(--s5);
+  box-shadow: inset -1px -1px 0 var(--line-soft);
+}
+
+.angka__nilai {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--fs-stat);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.angka__label {
+  display: block;
+  margin-top: var(--s2);
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .tentang {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ============================== KARTU UMUM =============================== */
+
+.kartu {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.kartu__isi {
+  flex: 1;
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+/* Tombol pada kartu yang isinya lebih pendek tetap duduk di dasar kartu,
+   bukan menggantung di tengah. Jadi kartu dalam satu baris tingginya sama
+   dan tombolnya sejajar. */
+.kartu__isi > .aksi {
+  margin-top: auto;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  line-height: 1.5;
+}
+
+.baris-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  list-style: none;
+}
+
+/* Tombol */
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 44px;
+  padding: 10px var(--s4);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.tombol:hover {
+  background: var(--panel);
+  border-color: #3c423d;
+}
+
+.tombol svg {
+  flex: none;
+}
+
+.tombol--utama {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.tombol--utama:hover {
+  background: #f06a41;
+  border-color: #f06a41;
+  color: var(--bg);
+}
+
+.tombol--kecil {
+  min-height: 36px;
+  padding: 6px var(--s3);
+  font-size: var(--fs-xs);
+}
+
+/* Status */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.status__lampu {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex: none;
+}
+
+.status--live {
+  color: var(--ink-2);
+}
+
+.status--live .status__lampu {
+  background: var(--ember);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .status--live .status__lampu {
+    animation: denyut 2.6s ease-out infinite;
+  }
+}
+
+@keyframes denyut {
+  0% {
+    box-shadow: 0 0 0 0 rgba(228, 87, 46, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(228, 87, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(228, 87, 46, 0);
+  }
+}
+
+/* ============================== PENDIDIKAN =============================== */
+
+.pendidikan + .pendidikan {
+  margin-top: var(--s5);
+}
+
+.pendidikan__kepala {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.pendidikan__kampus {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.pendidikan__jenjang {
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+}
+
+.pendidikan__periode {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.pendidikan__ipk {
+  margin-bottom: var(--s4);
+}
+
+.pendidikan__keterangan {
+  color: var(--ink-2);
+  max-width: 74ch;
+}
+
+.pendidikan__matakuliah {
+  margin-top: var(--s4);
+}
+
+/* =============================== KEMAMPUAN =============================== */
+
+.bidang {
+  display: grid;
+  /* Dua kolom di layar lebar. Kolomnya dibuat lebar supaya chip di dalamnya
+     bisa tersusun rata tiga per baris, bukan menggantung berselang-seling. */
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: var(--s7) var(--s6);
+}
+
+.bidang__nama {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--teal);
+  padding-bottom: var(--s2);
+  margin-bottom: var(--s4);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 34px;
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  line-height: 1.35;
+}
+
+.chip img {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+/* Daftar chip disusun sebagai kisi supaya setiap kotak lebarnya sama persis.
+   Tanpa ini, lebarnya mengikuti panjang teks: ada yang kependekan, ada yang
+   kepanjangan, dan ujung kanannya jadi bergerigi. */
+.baris-label--chip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+  gap: var(--s2);
+}
+
+/* Deretan mata kuliah juga disusun sebagai kisi. Kolomnya dibuat lebih lebar
+   daripada chip supaya nama kuliah yang panjang tidak terpecah jadi tiga
+   baris, dan jumlah barisnya tetap genap. */
+.pendidikan__matakuliah {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  gap: var(--s2);
+}
+
+/* ================================ PROYEK ================================= */
+
+.proyek {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(430px, 100%), 1fr));
+  gap: var(--s5);
+  /* Kartu dalam satu baris dibuat sama tinggi. Selisih tingginya diserap
+     oleh .proyek__kaki yang didorong ke dasar kartu, bukan ditebar jadi
+     celah-celah kecil di antara semua blok. */
+  align-items: stretch;
+}
+
+/* Blok data, label, dan tombol. `margin-top: auto` inilah yang mendorongnya
+   ke dasar kartu, sehingga metrik dan tombol antar kartu dalam satu baris
+   selalu sejajar. */
+.proyek__kaki {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+/* Alas gambar. Grafik dari proyek-proyek ini berlatar putih, jadi alasnya
+   dibuat putih juga supaya bingkai dan grafiknya menyatu. */
+.proyek__gambar {
+  aspect-ratio: 16 / 9;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.proyek__gambar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Kalau proyek belum punya tangkapan hasil, dipakai pola kisi koordinat. */
+.proyek__pola {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background-color: var(--panel-3);
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.proyek__kepala {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.proyek__tahun {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.proyek__nama {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.proyek__ringkas {
+  color: var(--ink-2);
+}
+
+.metrik {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  /* Kalau di layar sempit metriknya pecah jadi dua baris, barisnya dibuat
+     sama tinggi juga. */
+  grid-auto-rows: 1fr;
+  list-style: none;
+  background: var(--bg);
+  border-top: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.metrik__sel {
+  padding: var(--s3) var(--s3) var(--s4);
+  /* Garis dibuat per sel, bukan dari celah antar sel. Kalau memakai celah,
+     ruang yang tidak terpakai pada baris terakhir ikut terlihat sebagai
+     kotak abu-abu kosong. */
+  box-shadow: inset -1px -1px 0 var(--line-soft);
+}
+
+.metrik__nilai {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.metrik__label {
+  display: block;
+  margin-top: var(--s1);
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Tangga skor risiko provinsi. */
+.risiko {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--bg);
+  padding: var(--s4);
+}
+
+.risiko__judul {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  color: var(--muted);
+  margin-bottom: var(--s3);
+}
+
+.risiko__daftar {
+  list-style: none;
+  display: grid;
+  gap: var(--s2);
+}
+
+.risiko__baris {
+  display: grid;
+  grid-template-columns: minmax(104px, 8.5rem) minmax(0, 1fr) 3.25rem;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.risiko__nama {
+  font-size: var(--fs-xs);
+  color: var(--ink-2);
+}
+
+.risiko__trek {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  overflow: hidden;
+}
+
+.risiko__isi {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.risiko__isi--kritis {
+  background: var(--ember);
+}
+
+.risiko__isi--tinggi {
+  background: var(--amber);
+}
+
+.risiko__isi--sedang,
+.risiko__isi--rendah {
+  background: var(--teal);
+}
+
+.risiko__skor {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  text-align: right;
+}
+
+@media (max-width: 460px) {
+  .risiko__baris {
+    grid-template-columns: minmax(0, 1fr) 3.25rem;
+    grid-template-areas:
+      'nama skor'
+      'trek trek';
+    row-gap: var(--s2);
+  }
+
+  .risiko__nama {
+    grid-area: nama;
+  }
+
+  .risiko__skor {
+    grid-area: skor;
+  }
+
+  .risiko__trek {
+    grid-area: trek;
+  }
+}
+
+/* ============================== ORGANISASI =============================== */
+
+.riwayat {
+  list-style: none;
+  display: grid;
+  gap: var(--s5);
+}
+
+.riwayat__item {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: var(--s5);
+}
+
+.riwayat__periode {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.riwayat__peran {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.riwayat__lembaga {
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  margin-top: var(--s1);
+}
+
+.riwayat__poin {
+  margin-top: var(--s3);
+  padding-left: var(--s4);
+  display: grid;
+  gap: var(--s2);
+  color: var(--ink-2);
+}
+
+.riwayat__poin li::marker {
+  color: var(--ember);
+}
+
+@media (max-width: 700px) {
+  .riwayat__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s2);
+  }
+}
+
+/* ============================== SERTIFIKAT =============================== */
+
+.sertifikat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  /* Semua baris dibuat sama tinggi, bukan mengikuti isi kartu masing-masing.
+     Judul yang panjang atau tombol kredensial tidak lagi membuat kartu
+     tetangganya terlihat kependekan. */
+  grid-auto-rows: 1fr;
+  gap: var(--s4);
+}
+
+.sertifikat__gambar {
+  aspect-ratio: 16 / 10;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.sertifikat__gambar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sertifikat__nama {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sertifikat__penerbit {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  margin-top: var(--s1);
+}
+
+/* Di ponsel kartunya menumpuk satu kolom. Kalau tingginya dipaksa sama,
+   setiap kartu mewarisi tinggi kartu terpanjang dan menyisakan ruang kosong
+   yang panjang — jadi penyamaannya dimatikan di lebar ini. */
+@media (max-width: 640px) {
+  .sertifikat {
+    grid-auto-rows: auto;
+  }
+}
+
+/* ================================ KONTAK ================================= */
+
+.kontak {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s6) var(--s8);
+  align-items: start;
+}
+
+.kontak__daftar {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.kontak__baris {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: var(--s4);
+  align-items: baseline;
+  padding: var(--s4) var(--s5);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.kontak__baris:last-child {
+  border-bottom: 0;
+}
+
+.kontak__label {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.kontak__nilai {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.kontak__nilai a {
+  color: var(--ember);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.kontak__aksi {
+  display: grid;
+  gap: var(--s4);
+  align-content: start;
+  justify-items: start;
+}
+
+.kontak__aksi .tombol {
+  justify-content: center;
+}
+
+.kontak__catatan {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .kontak {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Di layar sempit tombol kontak dibuat selebar kolom supaya mudah dijangkau. */
+  .kontak__aksi {
+    justify-items: stretch;
+  }
+}
+
+@media (max-width: 520px) {
+  .kontak__baris {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s1);
+  }
+}
+
+/* ================================ FOOTER ================================= */
+
+.foot {
+  border-top: 1px solid var(--line-soft);
+  padding-block: var(--s6);
+}
+
+.foot__in {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+}
+
+.foot__teks {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.foot__sosial {
+  display: flex;
+  gap: var(--s2);
+  list-style: none;
+}
+
+.foot__sosial .ikon-tombol {
+  width: 38px;
+  height: 38px;
+}
+
+/* ============================== PENANDA KOSONG =========================== */
+
+/* Penanda "belum diisi". Diletakkan paling akhir supaya warnanya menang atas
+   warna abu-abu milik komponen mana pun yang memakainya. */
+.kosong {
+  color: var(--amber);
+}

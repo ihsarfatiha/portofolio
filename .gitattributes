@@ -1,0 +1,6 @@
+# Simpan berkas teks dengan LF di dalam repo, apa pun sistem operasinya.
+#
+# Tanpa ini, Git di Windows akan mengubah akhir baris menjadi CRLF saat berkas
+# ditarik, sehingga seluruh berkas tampak "berubah" padahal isinya sama persis.
+# Berkas biner (mis. public/cv.pdf) dikenali otomatis dan tidak disentuh.
+* text=auto eol=lf
