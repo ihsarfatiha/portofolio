@@ -1,7 +1,11 @@
 # Portofolio — Muhammad Ihsar Fatiha
 
-Satu halaman, dibangun dengan React + Vite. Tanpa router, tanpa pustaka UI,
-tanpa layanan pihak ketiga untuk formulir kontak.
+Satu halaman, dibangun dengan React + Vite dan Tailwind CSS v4. Tanpa router,
+tanpa pustaka UI, dan tanpa layanan pihak ketiga untuk formulir kontak.
+
+Tampilan mengikuti desain referensi di folder `Ihsar Data Science Portfolio`:
+navbar lengket, hero dengan foto bulat, bagian dengan judul di tengah, kartu
+keterampilan, timeline, kartu proyek bergradien, dan formulir kontak.
 
 ## Menjalankan
 
@@ -24,25 +28,18 @@ Tidak perlu membuka file komponen.
 
 ### Satu aturan penanda
 
-Nilai yang masih diawali tanda `[` berarti **belum diisi**:
+Nilai yang masih diawali tanda `[` berarti **belum diisi**. Nilai seperti ini
+tidak pernah dirender sebagai tombol atau tautan rusak. Begitu teksnya diganti,
+penandanya hilang sendiri.
 
-- dipakai sebagai **teks** → tampil kuning sebagai penanda;
-- dipakai sebagai **tautan, tombol, atau gambar** → tidak ditampilkan sama
-  sekali, supaya tidak ada tombol rusak di situs.
-
-Begitu teksnya Anda ganti, penanda kuning dan efek sembunyinya hilang sendiri.
-Tidak ada langkah tambahan.
-
-Saat ini tinggal dua yang berpenanda:
+Saat ini tinggal satu yang berpenanda:
 
 | Isi | Akibatnya sekarang |
 | --- | --- |
-| `foto` | Yang tampil monogram inisial **MIF**, bukan foto |
-| `instagram` | Baris Instagram kuning, ikonnya tidak muncul |
+| `foto` | Yang tampil monogram inisial, bukan foto |
 
-Sisanya sudah terisi dari CV dan sertifikat Anda. Di bagian Kontak ada satu
-kalimat kuning yang mendaftar sendiri apa saja yang masih kosong. Kalimat itu
-hilang otomatis setelah semuanya terisi.
+Satu hal lain yang sebaiknya diganti: `instagram` masih menunjuk ke halaman
+utama Instagram. Ganti dengan URL profil Anda.
 
 ### Menaruh foto
 
@@ -52,59 +49,98 @@ Taruh berkasnya di folder `public/`, lalu tulis nama berkasnya:
 foto: 'foto.jpg',
 ```
 
-CV Anda sudah ditaruh di `public/cv.pdf`, jadi tombol **Unduh CV** langsung
-berfungsi. Jalurnya sengaja ditulis tanpa garis miring di depan (`'cv.pdf'`,
-bukan `'/cv.pdf'`) supaya tetap benar saat dijalankan di komputer maupun
-setelah diterbitkan di subfolder GitHub Pages.
+Foto hanya dipakai di bagian Home. Selama belum diisi, bagian itu menampilkan
+monogram inisial (MI) di dalam lingkaran bergradien. Bagian About sengaja
+tampil tanpa foto.
 
-### Menampilkan gambar sertifikat
+CV sudah tersedia di `public/cv.pdf`, jadi tombol **Download CV** langsung
+berfungsi. Jalurnya ditulis tanpa garis miring di depan (`'cv.pdf'`) supaya
+tetap benar saat dijalankan di komputer maupun setelah diterbitkan di subfolder
+GitHub Pages.
 
-Kedua belas sertifikat saat ini tampil sebagai kartu teks. Kalau ingin
-menampilkan tangkapannya juga, taruh berkasnya di `public/sertifikat/`, lalu
-isi `gambar` pada sertifikat yang bersangkutan:
+### Sertifikat
+
+Kedua belas sertifikat tampil sebagai kartu di bagian **Certificates**, setelah
+Projects. Bagian Education hanya berisi riwayat pendidikan. Isi `tautan` pada
+sertifikat yang punya halaman verifikasi; tautan **Verifikasi** hanya muncul
+untuk sertifikat yang tautannya terisi.
 
 ```js
-gambar: 'sertifikat/ai-fundamentals.png',
+{ nama: 'AI Fundamentals', penerbit: 'DataCamp', tahun: '2024', tautan: 'https://...' }
 ```
 
-### Menambah organisasi atau sertifikat
+### Menambah sertifikat
 
-Salin satu blok `{ ... }` di dalam `organisasi` atau `sertifikat`, lalu ganti
-isinya. Jumlahnya bebas — jumlah pada kalimat keterangan bagian Sertifikat
-dihitung otomatis dari datanya, jadi tidak perlu ikut diubah.
+Salin satu blok `{ ... }` di dalam `sertifikat`, lalu ganti isinya. Jumlahnya
+bebas karena kartu dirender langsung dari data.
 
-### Mengubah status proyek
+### Mengubah proyek
 
-`status: 'live'` (ada demo daring) atau `'repo'` (hanya kode sumber). Lampu
-status dan tombol **Buka demo** mengikuti nilai ini.
+Setiap kartu proyek menampilkan judul dan tombol **Lihat**. Tombol itu membuka
+jendela detail berisi `detail`, `metrik`, `stack`, serta tautan `demo` dan
+`repo` bila tersedia.
 
-`gambar` adalah tangkapan hasil kerja Anda, ditampilkan utuh di atas alas putih
-sehingga grafik berlatar putih menyatu dengan alasnya. Proyek tanpa `gambar`
-otomatis memakai pola kisi sebagai gantinya — jadi tidak pernah ada kotak
-gambar kosong.
+Kelima proyek yang tampil semuanya terhubung ke repositori GitHub
+[`ihsarfatiha`](https://github.com/ihsarfatiha), dan tombol **Lihat Semua**
+mengarah ke daftar repositori. Repo `portofolio` sendiri sengaja tidak
+ditampilkan sebagai kartu proyek. Datanya ditulis manual di `proyek` — bukan
+diambil saat halaman dibuka — supaya situs tetap cepat dan tidak bergantung
+pada API GitHub.
+
+Tampilan kartu mengikuti desain referensi: gradien dan ikon besar, bukan
+tangkapan layar. Pemetaan ikon dan warna ada di `TAMPILAN_PROYEK` pada
+`src/App.jsx`; menambah proyek baru cukup dengan menambahkan satu entri di
+`proyek` (ikon cadangan akan dipakai kalau `id` belum dipetakan).
+
+`status: 'live'` menandai proyek yang punya demo daring, sedangkan `'repo'`
+hanya kode sumber. Nilai ini hanya memengaruhi teks tombol di jendela detail.
 
 ## Struktur
 
 ```
+index.html               <- kerangka halaman, judul, meta, favicon
+vite.config.js           <- React + Tailwind, base './'
+.github/workflows/       <- build dan terbit otomatis ke GitHub Pages
 src/
   data/profile.js        <- satu-satunya sumber isi
   lib/isi.js             <- aturan penanda "["
-  lib/sosial.js          <- tautan sosial & inisial, diturunkan dari profile.js
-  components/            <- penyaji; tidak menyimpan data
-  styles/tokens.css      <- warna, ukuran huruf, jarak
-  styles/base.css        <- reset, fokus, prefers-reduced-motion
-  styles/app.css         <- tata letak & komponen
+  App.jsx                <- seluruh halaman dan komponen kecilnya
+  index.css              <- Tailwind v4, tema aksen, font, animasi reveal
+  main.jsx               <- entrypoint React
+public/
+  cv.pdf                 <- berkas tombol Download CV
+  favicon.svg            <- ikon tab browser
+  robots.txt             <- aturan perayap mesin pencari
 ```
 
-Urutan bagian di navigasi diambil dari satu daftar di
-`src/components/Navigasi.jsx` (`BAGIAN`). Urutan bagian di halaman diambil dari
-`src/App.jsx`. Kalau salah satu diubah, ubah keduanya.
+`dist/` dan `node_modules/` dibuat ulang otomatis (`npm run build` dan
+`npm install`), jadi keduanya tidak perlu disimpan atau diunggah.
+Folder `Ihsar Data Science Portfolio/` adalah berkas desain referensi, bukan
+bagian dari situs; aman dihapus kalau tidak dipakai lagi.
 
-## Menerbitkan (GitHub + Netlify)
+## Catatan desain
 
-Kode disimpan di GitHub, penerbitannya diurus Netlify. `vite.config.js` memakai
-`base: './'` dan `netlify.toml` sudah menyimpan perintah build, folder
-keluaran, serta versi Node — jadi Netlify tidak perlu menebak apa pun.
+- Tailwind CSS v4 lewat plugin `@tailwindcss/vite`. Tema ada di `src/index.css`:
+  font **Plus Jakarta Sans**, aksen indigo `#4f46e5`, dan varian gelapnya.
+- Navigasi lengket dengan menu seluler di bawah 1024px.
+- Konten muncul dengan fade-in halus saat masuk layar lewat
+  `IntersectionObserver`. `prefers-reduced-motion` mematikan animasi.
+- Jendela detail proyek memakai portal dengan fokus terkunci, tombol Escape,
+  dan gulir halaman yang dikunci.
+- Formulir kontak tidak memakai backend. Saat dikirim, formulir membuka
+  aplikasi email Anda dengan nama, alamat pengirim, dan pesan yang sudah
+  terisi. Tidak ada data yang disimpan di situs.
+
+## Menerbitkan (GitHub Pages)
+
+Situs ini diterbitkan langsung oleh GitHub, tanpa Netlify. `vite.config.js`
+memakai `base: './'`, jadi aset tetap benar di alamat subfolder seperti
+`https://ihsarfatiha.github.io/portofolio/`.
+
+Alur kerjanya: setiap `git push` ke branch `main`, GitHub Actions di
+`.github/workflows/deploy.yml` menjalankan `npm ci` dan `npm run build`, lalu
+menerbitkan isi `dist/` ke GitHub Pages. Tidak perlu mengunggah `dist/` secara
+manual.
 
 > **Perlu Anda tahu:** `public/cv.pdf` ikut terbit dan bisa diunduh siapa saja,
 > jadi nomor HP dan email di dalamnya bisa dipanen bot spam. Kalau ingin lebih
@@ -113,27 +149,37 @@ keluaran, serta versi Node — jadi Netlify tidak perlu menebak apa pun.
 
 ### 1. Kirim kodenya ke GitHub
 
-Buat repositori kosong di GitHub — **jangan** centang "Add a README", karena
-resep ini mengasumsikan reponya masih benar-benar kosong. Lalu jalankan:
+Repositori `ihsarfatiha/portofolio` sudah terpasang sebagai `origin`. Kalau
+belum ada, tambahkan dulu:
 
 ```bash
 git remote add origin https://github.com/ihsarfatiha/portofolio.git
 git branch -M main
+```
+
+Lalu kirim semua berkas proyek:
+
+```bash
+git add -A
+git commit -m "Perbarui portofolio"
 git push -u origin main
 ```
 
-### 2. Sambungkan ke Netlify
+`node_modules/`, `dist/`, dan folder desain referensi sudah masuk `.gitignore`,
+jadi tidak ikut terunggah.
 
-1. Buka `app.netlify.com`, lalu **Add new site → Import an existing project**.
-2. Pilih GitHub, lalu pilih repo `portofolio`. Izinkan akses kalau diminta.
-3. Kolom perintah build dan folder keluaran akan terisi sendiri dari
-   `netlify.toml` (`npm run build` dan `dist`). Biarkan apa adanya.
-4. Tekan **Deploy**. Sekitar semenit kemudian situsnya hidup.
+### 2. Aktifkan GitHub Pages
 
-Alamatnya bisa diganti di **Site configuration → Change site name**, misalnya
-menjadi `ihsar-fatiha` sehingga alamatnya jadi `ihsar-fatiha.netlify.app`.
+1. Buka repo di GitHub, masuk **Settings → Pages**.
+2. Di bagian **Build and deployment → Source**, pilih **GitHub Actions**.
+3. Buka tab **Actions** dan tunggu workflow **Deploy ke GitHub Pages** selesai.
+4. Alamat situsnya: `https://ihsarfatiha.github.io/portofolio/`.
 
-### 3. Setelah tersambung, seterusnya cukup begini
+Kalau workflow gagal karena Pages belum aktif, buka Settings → Pages sekali
+lagi, pilih **GitHub Actions**, lalu jalankan ulang workflow dari tab Actions
+(**Re-run all jobs**).
+
+### 3. Seterusnya cukup begini
 
 ```bash
 git add -A
@@ -141,39 +187,17 @@ git commit -m "perbarui isi portofolio"
 git push
 ```
 
-Netlify membangun ulang dan menerbitkan sendiri. Tidak perlu menjalankan
-`npm run build` maupun mengunggah berkas secara manual.
+GitHub membangun ulang dan menerbitkan sendiri dalam satu-dua menit.
 
-### Kalau nanti ingin pindah rumah
+### Alternatif tanpa GitHub Actions
 
-Kodenya tidak perlu diubah sama sekali:
+Kalau lebih suka mengunggah hasil build secara manual:
 
-- **Vercel** — impor repo yang sama. Vercel mengenali Vite sendiri, dan
-  `base: './'` tetap benar.
-- **GitHub Pages** — beri nama repo persis `ihsarfatiha.github.io` supaya
-  alamatnya bersih di akar (`https://ihsarfatiha.github.io/`), lalu terbitkan
-  isi folder `dist/` ke branch `gh-pages`. Butuh satu berkas workflow GitHub
-  Actions supaya terbitnya otomatis.
+```bash
+npm run build
+```
 
-## Catatan desain
-
-- Kerangkanya mengikuti rujukan portofolio yang Anda berikan: foto, tombol
-  unduh CV, pendidikan, kemampuan, kartu proyek bergambar, organisasi,
-  sertifikat, dan kontak. Semuanya satu halaman dengan navigasi anchor.
-- Palet dan tipografi tetap milik Anda sendiri dan diturunkan dari subjeknya:
-  pemantauan lahan gambut dari satelit. Ember untuk status dan peringatan, teal
-  untuk lapisan data.
-- Satu-satunya gerakan halaman adalah urutan tampil saat halaman dimuat.
-  `prefers-reduced-motion` mematikannya sepenuhnya di `base.css`.
-- Tangga skor risiko pada kartu proyek gambut memakai angka asli hasil model
-  XGBoost di repositori `peatland-fire-prediction`, tidak dibulatkan.
-- Logo teknologi diambil dari `cdn.simpleicons.org` dalam satu warna (teal).
-  Kalau gagal dimuat, ikonnya menghilang dan labelnya tetap terbaca.
-- Kotak-kotaknya sengaja dibuat seragam, tidak mengikuti panjang teks:
-  chip kemampuan, kotak mata kuliah, dan sel angka memakai kisi berukuran
-  sama, sedangkan kartu sertifikat dan kartu proyek dalam satu baris dipaksa
-  sama tinggi. Pada kartu, tombol selalu duduk di dasar kartu sehingga
-  sejajar antar kolom.
-- Satu pengecualian: label teknologi di dalam kartu proyek (mis. `PySpark`)
-  tetap lebarnya mengikuti teks, karena di sana fungsinya sebagai tanda
-  pengenal dan kotak seragam selebar kolom justru terlihat kosong.
+Lalu unggah **isi** folder `dist/` (bukan folder `dist`-nya) ke branch
+`gh-pages` di GitHub, dan di **Settings → Pages** pilih
+**Deploy from a branch → gh-pages / (root)**. Cara ini membuat Anda harus
+menjalankan `npm run build` setiap kali ada perubahan.

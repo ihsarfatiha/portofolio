@@ -2,215 +2,174 @@
 //  SATU-SATUNYA FILE YANG PERLU ANDA EDIT.
 //  Semua teks, angka, gambar, dan tautan portofolio ada di sini.
 //
-//  ATURAN PENANDA — hanya ada satu:
-//   Nilai yang masih diawali tanda "[" berarti BELUM DIISI.
-//   • Kalau dipakai sebagai teks  -> tampil kuning sebagai penanda.
-//   • Kalau dipakai sebagai tautan, tombol, atau gambar -> tidak
-//     ditampilkan sama sekali, supaya tidak ada tombol rusak di situs.
-//   Begitu Anda ganti teksnya, penanda kuning dan efek sembunyinya hilang
-//   sendiri. Tidak ada langkah tambahan.
-//
-//  Isi berkas ini diambil dari CV Anda dan dari repositori GitHub Anda.
+//  Nilai yang masih diawali tanda "[" berarti BELUM DIISI.
+//  Teksnya tampil sebagai penanda, sedangkan tautan/gambar yang belum diisi
+//  otomatis tidak ditampilkan supaya tidak ada tombol rusak di situs.
 // ============================================================================
 
 export const profil = {
   nama: 'Muhammad Ihsar Fatiha',
+  panggilan: 'Ihsar',
 
-  // Baris kecil di atas nama pada bagian depan.
-  sapaan: 'Halo, saya',
-
-  // Sebutan singkat yang muncul di bawah nama.
-  peran: 'Data Science & Machine Learning',
-
-  judul: 'Saya mengawal proyek dari data mentah sampai jadi model yang teruji.',
+  // Baris pendek di bawah nama pada bagian Home.
+  peran: 'Seorang Data Scientist dan Informatics Student',
 
   ringkas:
-    'Mahasiswa Informatika Universitas Mercu Buana, semester 7. Selama kuliah saya mengerjakan proyek di beberapa bidang sekaligus — data science, machine learning, big data, NLP, sistem informasi geografis, sampai computer vision. Saya terbiasa menjelaskan temuan teknis dengan gamblang, dalam bahasa Indonesia maupun Inggris. Sekarang saya mencari magang di bidang data dan AI.',
+    'Mahasiswa Teknik Informatika Universitas Mercu Buana yang membangun proyek data science dan machine learning end-to-end — dari pengolahan data dan pelatihan model sampai aplikasi yang bisa dipakai.',
 
   // FOTO: taruh berkasnya di folder `public`, lalu tulis "foto.jpg".
   // Selama masih penanda, yang tampil adalah monogram inisial Anda.
   foto: '[ isi: contoh foto.jpg ]',
 
-  // CV: berkas CV Anda sudah ditaruh di folder `public` sebagai cv.pdf.
-  // Jalurnya sengaja ditulis tanpa garis miring di depan supaya tetap benar
-  // baik saat dijalankan di komputer maupun setelah diterbitkan di subfolder.
+  // CV sudah tersedia di folder `public/cv.pdf`.
   cv: 'cv.pdf',
 
   lokasi: 'Jakarta, Indonesia',
   email: 'Ihsarfatiha@gmail.com',
-
-  // Boleh ditulis apa adanya seperti di CV. Tautannya dibentuk otomatis:
-  // 08515... akan menjadi wa.me/628515...
   whatsapp: '08515 6046 957',
 
   linkedin: 'https://www.linkedin.com/in/muhammad-ihsar-fatiha',
-  instagram: '[ isi URL Instagram Anda ]',
+  // Ganti dengan URL profil Instagram Anda. Selama masih alamat utama ini,
+  // ikon Instagram tetap tampil agar susunan tombol sosial lengkap.
+  instagram: 'https://www.instagram.com/',
   github: 'https://github.com/ihsarfatiha',
+
+  // Teks kecil di dekat foto pada bagian Home.
+  ketersediaan: 'Terbuka untuk magang Data & AI',
 }
 
-// Angka ringkas di bawah bagian Tentang.
-export const angka = [
-  { nilai: '3,69', label: 'IPK dari 4,00' },
-  { nilai: '5', label: 'proyek publik' },
-  { nilai: '12', label: 'sertifikat & pelatihan' },
-]
-
 export const tentang = [
-  'Yang paling sering saya kerjakan justru bagian yang tidak kelihatan: merapikan data, memilih fitur yang benar-benar berguna, menangani kelas data yang tidak seimbang, dan mengukur hasil dengan metrik yang jujur — bukan sekadar angka akurasi yang terlihat bagus.',
-  'Di luar perkuliahan saya ikut menjalankan usaha ritel keluarga, dan aktif di Mercu Buana English Club. Dari usaha keluarga itu saya belajar membaca data dari sisi keputusan usaha, bukan hanya dari sisi modelnya.',
+  'Halo, nama saya Ihsar, mahasiswa Teknik Informatika di Universitas Mercu Buana dengan IPK 3.69/4.00. Saya tertarik pada Data Science, Machine Learning, NLP, Computer Vision, dan GIS, serta senang membangun proyek end-to-end mulai dari pengolahan data, pelatihan model, sampai aplikasi yang bisa dipakai.',
 ]
 
+// Kelompok kemampuan yang tampil sebagai kisi ikon + label.
+export const keahlian = [
+  {
+    nama: 'Technical Skills',
+    keterangan:
+      'Bahasa, library, dan platform untuk analisis data, pelatihan model, sampai pemetaan.',
+    isi: [
+      { nama: 'Python', logo: 'python' },
+      { nama: 'SQL', logo: null, singkatan: 'SQL' },
+      { nama: 'pandas', logo: 'pandas' },
+      { nama: 'NumPy', logo: 'numpy' },
+      { nama: 'Scikit-Learn', logo: 'scikitlearn' },
+      { nama: 'TensorFlow', logo: 'tensorflow' },
+      { nama: 'PySpark', logo: 'apachespark' },
+      { nama: 'Matplotlib', logo: 'matplotlib' },
+      { nama: 'Plotly', logo: 'plotly' },
+    ],
+  },
+  {
+    nama: 'Tools Use',
+    keterangan: 'Alat bantu harian untuk eksplorasi data, pelatihan model, dan pengembangan proyek.',
+    isi: [
+      // Simple Icons tidak lagi menyediakan logo VS Code (404), jadi pakai
+      // kotak singkatan agar tidak ada permintaan gambar yang gagal.
+      { nama: 'VS Code', logo: null, singkatan: 'VS' },
+      { nama: 'Jupyter Notebook', logo: 'jupyter' },
+      { nama: 'Google Colab', logo: 'googlecolab' },
+      { nama: 'Git & GitHub', logo: 'github' },
+      { nama: 'Docker', logo: 'docker' },
+      { nama: 'MySQL', logo: 'mysql' },
+      { nama: 'QGIS', logo: 'qgis' },
+      { nama: 'Google Earth Engine', logo: 'googleearthengine' },
+    ],
+  },
+  {
+    nama: 'Web Development',
+    keterangan: 'Teknologi yang saya pakai untuk membangun aplikasi web full-stack.',
+    isi: [
+      { nama: 'PHP', logo: 'php' },
+      { nama: 'Laravel', logo: 'laravel' },
+      { nama: 'JavaScript', logo: 'javascript' },
+      { nama: 'HTML', logo: 'html5' },
+      { nama: 'CSS', logo: 'css' },
+    ],
+  },
+]
+
+// Diurutkan dari yang paling baru.
 export const pendidikan = [
   {
-    kampus: 'Universitas Mercu Buana',
-    jenjang: 'S1 Informatika',
-    periode: 'September 2023 – sekarang',
-    ipk: '3,69 / 4,00',
+    periode: '2023 — Sekarang',
+    institusi: 'Universitas Mercu Buana',
+    jenjang: 'S1 Teknik Informatika',
     keterangan:
-      'Saat ini semester 7. Fokus pada data science, machine learning, big data, dan sistem informasi geografis.',
-    matakuliah: [
-      'Data Science',
-      'Machine Learning',
-      'Big Data',
-      'Natural Language Processing',
-      'Generative AI',
-      'Computer Vision',
-      'Geographic Information Systems',
-      'UX/UI Design',
-      'Business Intelligence',
-      'Kewirausahaan',
-    ],
+      'Fokus pada Data Science, Machine Learning, Big Data, dan Sistem Informasi Geografis. Saat ini menempuh semester 7.',
+    ipk: '3.69 / 4.00',
+    status: 'Sedang ditempuh',
+  },
+  {
+    periode: '2020 — 2023',
+    institusi: 'SMAN 10 Kota Tangerang Selatan',
+    jenjang: 'Ilmu Pengetahuan Alam (IPA)',
+    keterangan: 'Pendidikan menengah atas.',
+    ipk: null,
+    status: 'Selesai',
   },
 ]
 
-// `logo` memakai berkas dari cdn.simpleicons.org. Kalau logo gagal dimuat,
-// labelnya tetap tampil sebagai teks biasa — tidak ada yang rusak.
-export const kemampuan = [
-  {
-    nama: 'Data Science',
-    isi: [
-      { teks: 'Eksplorasi data (EDA)' },
-      { teks: 'Pemilihan fitur' },
-      { teks: 'Chi-Square' },
-      { teks: 'Mutual Information' },
-      { teks: 'SMOTE' },
-      { teks: 'Class weighting' },
-      { teks: 'Cross-validation' },
-      { teks: 'Threshold tuning' },
-      { teks: 'Evaluasi model' },
-    ],
-  },
-  {
-    nama: 'Machine Learning',
-    isi: [
-      { teks: 'Scikit-Learn', logo: 'scikitlearn' },
-      { teks: 'XGBoost' },
-      { teks: 'LightGBM' },
-      { teks: 'Random Forest' },
-      { teks: 'AdaBoost' },
-      { teks: 'Naive Bayes' },
-      { teks: 'Decision Tree' },
-    ],
-  },
-  {
-    nama: 'Big Data',
-    isi: [
-      { teks: 'Apache Spark', logo: 'apachespark' },
-      { teks: 'PySpark', logo: 'apachespark' },
-      { teks: 'Spark SQL' },
-      { teks: 'Parquet' },
-      { teks: 'ETL terdistribusi' },
-    ],
-  },
-  {
-    nama: 'NLP & Generative AI',
-    isi: [
-      { teks: 'IndoBERT' },
-      { teks: 'Hugging Face', logo: 'huggingface' },
-      { teks: 'OpenCV', logo: 'opencv' },
-      { teks: 'Praproses teks' },
-      { teks: 'Rekayasa prompt' },
-      { teks: 'Etika AI' },
-    ],
-  },
-  {
-    nama: 'Pemrograman & Data',
-    isi: [
-      { teks: 'Python', logo: 'python' },
-      { teks: 'pandas', logo: 'pandas' },
-      { teks: 'NumPy', logo: 'numpy' },
-      { teks: 'SQL' },
-      { teks: 'PL/SQL' },
-      { teks: 'MySQL', logo: 'mysql' },
-      { teks: 'BigQuery', logo: 'googlebigquery' },
-    ],
-  },
-  {
-    nama: 'Geospasial',
-    isi: [
-      { teks: 'QGIS', logo: 'qgis' },
-      { teks: 'GeoPandas' },
-      { teks: 'Folium' },
-      { teks: 'Google Earth Engine', logo: 'googleearthengine' },
-      { teks: 'MODIS LST / NDVI' },
-      { teks: 'NASA FIRMS' },
-    ],
-  },
-  {
-    nama: 'Web',
-    isi: [
-      { teks: 'HTML', logo: 'html5' },
-      { teks: 'CSS', logo: 'css' },
-      { teks: 'JavaScript', logo: 'javascript' },
-      { teks: 'React', logo: 'react' },
-      { teks: 'Vite', logo: 'vite' },
-      { teks: 'Streamlit' },
-      { teks: 'Laravel', logo: 'laravel' },
-      { teks: 'PHP', logo: 'php' },
-    ],
-  },
-  {
-    nama: 'Visualisasi & Alat',
-    isi: [
-      { teks: 'Jupyter', logo: 'jupyter' },
-      { teks: 'Google Colab', logo: 'googlecolab' },
-      { teks: 'Plotly.js', logo: 'plotly' },
-      { teks: 'Chart.js', logo: 'chartdotjs' },
-      { teks: 'Matplotlib' },
-      { teks: 'Git', logo: 'git' },
-      { teks: 'GitHub', logo: 'github' },
-      { teks: 'Google Sheets', logo: 'googlesheets' },
-      { teks: 'Microsoft Office' },
-    ],
-  },
-  {
-    nama: 'Soft Skills & Bahasa',
-    isi: [
-      { teks: 'Komunikasi' },
-      { teks: 'Customer focus' },
-      { teks: 'Perencanaan strategis' },
-      { teks: 'Berorientasi hasil' },
-      { teks: 'Bahasa Indonesia (asli)' },
-      { teks: 'Bahasa Inggris (dasar)' },
-    ],
-  },
-]
-
-// status: 'live' -> ada demo daring yang bisa dibuka
+// status: 'live' -> ada demo daring
 //         'repo' -> baru tersedia kode sumbernya
-//
-// `gambar` adalah tangkapan hasil kerja Anda, ditampilkan utuh di atas alas
-// putih sehingga grafik berlatar putih menyatu dengan alasnya. Proyek tanpa
-// `gambar` otomatis memakai pola kisi, jadi tidak pernah ada kotak kosong.
 export const proyek = [
   {
-    id: 'gambut',
-    nama: 'Prediksi Risiko Kebakaran Lahan Gambut',
+    id: 'diabetes',
+    nama: 'Diabetes Risk Classification',
+    kategori: 'Machine Learning · Kesehatan',
+    tahun: '2026',
+    status: 'repo',
+    ringkas:
+      'Perbandingan empat model untuk skrining risiko diabetes pada 253.680 rekam medis yang sangat tidak seimbang.',
+    detail:
+      'Membandingkan Naive Bayes, Decision Tree, Random Forest, dan AdaBoost untuk memprediksi risiko diabetes dari data survei kesehatan yang sangat tidak seimbang: 253.680 rekam medis dengan rasio kelas 86:14. Ketidakseimbangan ditangani dengan SMOTE dan class weighting, pemilihan fitur diuji dengan Chi-Square dan Mutual Information, lalu setiap model divalidasi dengan 10-fold cross-validation. Yang terpilih adalah AdaBoost + SMOTE + Chi-Square (F1 0,43, AUC 0,798), dan ambang keputusannya saya geser demi memprioritaskan recall untuk skrining medis.',
+    metrik: [
+      { nilai: '253.680', label: 'rekam medis dianalisis' },
+      { nilai: '4', label: 'model dibandingkan' },
+      { nilai: '0,798', label: 'AUC model terpilih' },
+      { nilai: '10-fold', label: 'cross-validation' },
+    ],
+    stack: ['Scikit-Learn', 'SMOTE', 'Chi-Square', 'AdaBoost', 'pandas', 'React + Vite'],
+    repo: 'https://github.com/ihsarfatiha/Diabetes-Risk-Classification-Model-Comparison',
+    demo: null,
+  },
+  {
+    id: 'linkedin',
+    nama: 'End-to-End Salary Prediction Pipeline',
+    kategori: 'Big Data · NLP',
     tahun: '2026',
     status: 'live',
-    gambar:
-      'https://raw.githubusercontent.com/ihsarfatiha/peatland-fire-prediction/main/assets/feature_importance.png',
     ringkas:
+      'Pipeline PySpark end-to-end untuk memprediksi gaji dan mengklasifikasikan jenis kerja dari 123.849 lowongan LinkedIn.',
+    detail:
+      'Pipeline big data end-to-end atas dataset LinkedIn Job Postings 2023–2024. PySpark menggabungkan tabel lowongan, perusahaan, industri, dan keterampilan; hasilnya dipakai untuk memprediksi gaji tahunan sekaligus mengklasifikasikan jenis kerja — remote, hybrid, atau onsite. Saya juga menyusun templat prompt yang bisa dipakai ulang untuk menyeragamkan kode pipeline dan penulisan laporan.',
+    metrik: [
+      { nilai: '123.849', label: 'lowongan dianalisis' },
+      { nilai: '13.187', label: 'MAE prediksi gaji (USD)' },
+      { nilai: '0,3324', label: 'R² regresi XGBoost' },
+      { nilai: '58,64%', label: 'akurasi klasifikasi' },
+    ],
+    stack: [
+      'Apache Spark 3.5',
+      'PySpark',
+      'Spark SQL',
+      'Scikit-Learn',
+      'XGBoost',
+      'Plotly.js',
+      'Netlify',
+    ],
+    repo: 'https://github.com/ihsarfatiha/LinkedIn-Job-Market-Analytics-BigData',
+    demo: 'https://linkedln-job-market-analytics.netlify.app/',
+  },
+  {
+    id: 'gambut',
+    nama: 'Peatland Fire Early Warning Prediction System',
+    kategori: 'Machine Learning · GIS',
+    tahun: '2026',
+    status: 'live',
+    ringkas:
+      'Sistem peringatan dini dua tugas untuk lahan gambut Sumatera dan Kalimantan, dari data satelit sampai peta risiko provinsi.',
+    detail:
       'Sistem peringatan dini dua tugas untuk lahan gambut Sumatera dan Kalimantan: memperkirakan probabilitas kemunculan titik api, sekaligus mengestimasi sisa hari menuju ambang kekeringan kritis (< 4 mm/hari). Data satelit dikumpulkan lewat Google Earth Engine, diolah dengan PySpark, lalu dibandingkan antara XGBoost, LightGBM, dan Random Forest. Skor risiko gabungan dari hasil model dipakai untuk memeringkat provinsi, dan temuannya saya paparkan dalam laporan 10 salindia.',
     metrik: [
       { nilai: '23.169', label: 'baris data latih' },
@@ -218,7 +177,6 @@ export const proyek = [
       { nilai: '0,9989', label: 'R² regresi XGBoost' },
       { nilai: '0,6313', label: 'ROC-AUC klasifikasi' },
     ],
-    // Hasil asesmen risiko dari model XGBoost, apa adanya.
     risiko: [
       { nama: 'Sumatera Selatan', skor: 100, tingkat: 'kritis' },
       { nama: 'Kalimantan Barat', skor: 94.13, tingkat: 'kritis' },
@@ -240,185 +198,114 @@ export const proyek = [
     demo: 'https://peatland-fire-prediction-dashboard.netlify.app/',
   },
   {
-    id: 'linkedin',
-    nama: 'Pipeline Prediksi Gaji & Jenis Kerja',
-    tahun: '2026',
+    id: 'itagarage',
+    nama: 'Vehicle Rental Web Application',
+    kategori: 'Web App · Laravel',
+    tahun: '2025',
     status: 'live',
-    gambar:
-      'https://raw.githubusercontent.com/ihsarfatiha/LinkedIn-Job-Market-Analytics-BigData/main/output-visualisasi-hasil/00_data_pipeline_rows.png',
     ringkas:
-      'Pipeline big data end-to-end atas dataset LinkedIn Job Postings 2023–2024. PySpark menggabungkan tabel lowongan, perusahaan, industri, dan keterampilan; hasilnya dipakai untuk memprediksi gaji tahunan sekaligus mengklasifikasikan jenis kerja — remote, hybrid, atau onsite. Saya juga menyusun templat prompt yang bisa dipakai ulang untuk menyeragamkan kode pipeline dan penulisan laporan.',
-    metrik: [
-      { nilai: '123.849', label: 'lowongan dianalisis' },
-      { nilai: '13.187', label: 'MAE prediksi gaji (USD)' },
-      { nilai: '0,3324', label: 'R² regresi XGBoost' },
-      { nilai: '58,64%', label: 'akurasi klasifikasi' },
-    ],
-    stack: [
-      'Apache Spark 3.5',
-      'PySpark',
-      'Spark SQL',
-      'Scikit-Learn',
-      'XGBoost',
-      'Plotly.js',
-      'Netlify',
-    ],
-    repo: 'https://github.com/ihsarfatiha/LinkedIn-Job-Market-Analytics-BigData',
-    demo: 'https://linkedln-job-market-analytics.netlify.app/',
+      'Aplikasi sewa kendaraan full-stack dengan Laravel: armada, reservasi, dasbor admin, dan pembayaran.',
+    detail:
+      'Platform sewa kendaraan full-stack dengan Laravel, dikerjakan sendiri dari desain basis data sampai antarmuka. Mencakup autentikasi pengguna, pengelolaan armada, pemesanan dan reservasi, dasbor admin, serta penanganan pembayaran — satu siklus utuh dari pelanggan sampai admin.',
+    metrik: null,
+    stack: ['PHP', 'Laravel', 'MySQL', 'Blade'],
+    repo: 'https://github.com/ihsarfatiha/ITAGarage---website-sewa-kendaraan',
+    demo: 'https://ihsarfatiha.github.io/ITAGarage---website-sewa-kendaraan/',
   },
   {
-    id: 'diabetes',
-    nama: 'Perbandingan Empat Model Risiko Diabetes',
+    id: 'webgis',
+    nama: 'WebGIS Zonasi Konservasi Situs Purbakala',
+    kategori: 'GIS · Web App · Konservasi',
     tahun: '2026',
     status: 'repo',
-    gambar:
-      'https://raw.githubusercontent.com/ihsarfatiha/Diabetes-Risk-Classification-Model-Comparison/main/performance_vs_speed_analysis.png',
     ringkas:
-      'Membandingkan Naive Bayes, Decision Tree, Random Forest, dan AdaBoost untuk memprediksi risiko diabetes dari data survei kesehatan yang sangat tidak seimbang: 253.680 rekam medis dengan rasio kelas 86:14. Ketidakseimbangan ditangani dengan SMOTE dan class weighting, pemilihan fitur diuji dengan Chi-Square dan Mutual Information, lalu setiap model divalidasi dengan 10-fold cross-validation. Yang terpilih adalah AdaBoost + SMOTE + Chi-Square (F1 0,43, AUC 0,798), dan ambang keputusannya saya geser demi memprioritaskan recall untuk skrining medis.',
+      'Dasbor peta interaktif untuk memantau zonasi konservasi 37 situs candi, lengkap dengan buffer kerentanan 500 m dan 1 km.',
+    detail:
+      'Dasbor WebGIS untuk pelestarian cagar budaya: menampilkan situs inti candi, zonasi penyangga, fasilitas edukasi, dan pos pemantauan sebagai layer yang bisa dinyalakan atau dimatikan. Peta dibangun dengan Streamlit, Folium, dan GeoPandas, dilengkapi filter periodisasi sejarah dan tingkat risiko per situs, alat ukur jarak, serta buffer kerentanan 500 m dan 1 km. Dari analisisnya terlihat ekspansi permukiman dan kawasan komersial yang signifikan dalam 10 tahun terakhir di radius 1 km dari situs inti — dasar rekomendasi penguatan regulasi tata ruang zona penyangga dan penambahan frekuensi patroli.',
     metrik: [
-      { nilai: '253.680', label: 'rekam medis dianalisis' },
-      { nilai: '4', label: 'model dibandingkan' },
-      { nilai: '0,798', label: 'AUC model terpilih' },
-      { nilai: '10-fold', label: 'cross-validation' },
+      { nilai: '37', label: 'situs candi dipetakan' },
+      { nilai: '17', label: 'fasilitas edukasi' },
+      { nilai: '15', label: 'pos pemantauan' },
+      { nilai: '1 km', label: 'radius analisis kerentanan' },
     ],
-    stack: [
-      'Scikit-Learn',
-      'SMOTE',
-      'Chi-Square',
-      'AdaBoost',
-      'pandas',
-      'React + Vite',
-    ],
-    repo: 'https://github.com/ihsarfatiha/Diabetes-Risk-Classification-Model-Comparison',
-    demo: null,
-  },
-  {
-    id: 'purbakala',
-    nama: 'WebGIS Zonasi Konservasi Situs Candi',
-    tahun: '2026',
-    status: 'repo',
-    gambar: null,
-    ringkas:
-      'Aplikasi peta interaktif untuk merancang zona penyangga di sekitar situs candi. Dibangun dengan Streamlit dan Folium di atas GeoPandas, menampilkan layer situs candi, pos pemantauan, fasilitas edukasi, serta buffer 500 m dan 1 km sebagai dasar penentuan zonasi.',
-    stack: ['Python', 'Streamlit', 'Folium', 'GeoPandas', 'GeoJSON'],
+    stack: ['Python', 'Streamlit', 'GeoPandas', 'Folium', 'GeoJSON', 'QGIS'],
     repo: 'https://github.com/ihsarfatiha/webgis-purbakala',
     demo: null,
   },
-  {
-    id: 'itagarage',
-    nama: 'ITAGarage — Aplikasi Web Sewa Kendaraan',
-    tahun: '2025',
-    status: 'repo',
-    gambar: null,
-    ringkas:
-      'Platform sewa kendaraan full-stack dengan Laravel, dikerjakan sendiri dari desain basis data sampai antarmuka. Mencakup autentikasi pengguna, pengelolaan armada, pemesanan dan reservasi, dasbor admin, serta penanganan pembayaran — satu siklus utuh dari pelanggan sampai admin.',
-    stack: ['PHP', 'Laravel', 'MySQL', 'Blade'],
-    repo: 'https://github.com/ihsarfatiha/ITAGarage---website-sewa-kendaraan',
-    demo: null,
-  },
 ]
 
-export const organisasi = [
-  {
-    peran: 'Anggota Divisi Newcast & Warehouse',
-    lembaga: 'Mercu Buana English Club (MBEC)',
-    periode: 'September 2024 – sekarang',
-    poin: [
-      'Panitia Mercu Buana English Event 2025',
-      'Panitia Open Recruitment & Open House 2025',
-      'Panitia Leadership Training Program MBEC 2026',
-    ],
-  },
-]
-
-// Diurutkan dari yang paling baru. `gambar` sengaja dikosongkan karena
-// tangkapan sertifikatnya belum ada di folder public; kalau nanti mau
-// ditampilkan, taruh berkasnya di `public/sertifikat/` lalu tulis misalnya
-// gambar: 'sertifikat/ai-fundamentals.png'.
-// `tautan` hanya diisi kalau kredensialnya memang bisa diverifikasi sendiri.
+// Ditampilkan lewat tombol "Semua Sertifikat" di bagian Education.
 export const sertifikat = [
   {
     nama: 'Introduction to Cybersecurity Careers',
     penerbit: 'IBM · Coursera',
     tahun: '7 Juni 2026',
-    gambar: null,
     tautan: 'https://coursera.org/verify/ADNV26523RCB',
   },
   {
     nama: 'Information Technology (IT) Fundamentals for Everyone',
     penerbit: 'IBM · Coursera',
     tahun: '4 Juni 2026',
-    gambar: null,
     tautan: 'https://coursera.org/verify/87VCPLYG1UJD',
   },
   {
     nama: 'Introduction to Software, Programming, and Databases',
     penerbit: 'IBM · Coursera',
     tahun: '2 Juni 2026',
-    gambar: null,
     tautan: 'https://coursera.org/verify/VU8TYMT4Z76U',
   },
   {
     nama: 'PL/SQL Database Programming Semester 2',
     penerbit: 'Oracle Academy',
     tahun: '23 Desember 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Database Programming with PL/SQL',
     penerbit: 'Oracle Academy',
     tahun: '22 Desember 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'AI Fundamentals',
     penerbit: 'DataCamp',
     tahun: '10 November 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'AI Ethics',
     penerbit: 'DataCamp',
     tahun: '6 November 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Large Language Models (LLMs) Concepts',
     penerbit: 'DataCamp',
     tahun: '17 Oktober 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Understanding Machine Learning',
     penerbit: 'DataCamp',
     tahun: '3 Oktober 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Understanding ChatGPT',
     penerbit: 'DataCamp',
     tahun: '19 September 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Understanding Artificial Intelligence',
     penerbit: 'DataCamp',
     tahun: '18 September 2024',
-    gambar: null,
     tautan: null,
   },
   {
     nama: 'Python (Basic)',
     penerbit: 'HackerRank',
     tahun: '19 April 2024',
-    gambar: null,
     tautan: 'https://www.hackerrank.com/certificates/C6A95DF47814',
   },
 ]
