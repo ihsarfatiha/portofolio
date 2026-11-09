@@ -35,8 +35,6 @@ jobs:
 
       - name: Siapkan GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Unggah hasil build
         uses: actions/upload-pages-artifact@v3

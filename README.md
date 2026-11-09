@@ -168,16 +168,21 @@ git push -u origin main
 `node_modules/`, `dist/`, dan folder desain referensi sudah masuk `.gitignore`,
 jadi tidak ikut terunggah.
 
-### 2. Aktifkan GitHub Pages
+### 2. Aktifkan GitHub Pages (sekali saja)
 
-1. Buka repo di GitHub, masuk **Settings → Pages**.
-2. Di bagian **Build and deployment → Source**, pilih **GitHub Actions**.
-3. Buka tab **Actions** dan tunggu workflow **Deploy ke GitHub Pages** selesai.
+GitHub Actions tidak bisa menyalakan Pages sendiri, jadi langkah ini harus
+dilakukan sekali dari halaman repo:
+
+1. Buka **Settings → Pages**:
+   `https://github.com/ihsarfatiha/portofolio/settings/pages`
+2. Di **Build and deployment → Source**, pilih **GitHub Actions**.
+3. Buka tab **Actions**, pilih workflow **Deploy ke GitHub Pages**, lalu klik
+   **Re-run all jobs**. Kalau belum ada, cukup push perubahan berikutnya.
 4. Alamat situsnya: `https://ihsarfatiha.github.io/portofolio/`.
 
-Kalau workflow gagal karena Pages belum aktif, buka Settings → Pages sekali
-lagi, pilih **GitHub Actions**, lalu jalankan ulang workflow dari tab Actions
-(**Re-run all jobs**).
+Workflow pertama akan gagal di langkah **Siapkan GitHub Pages** selama sumber
+Pages belum diubah ke **GitHub Actions**. Setelah langkah di atas dilakukan,
+workflow berikutnya berjalan normal.
 
 ### 3. Seterusnya cukup begini
 
