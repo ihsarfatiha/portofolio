@@ -149,16 +149,13 @@ function Reveal({ children, className = '' }) {
   )
 }
 
-function Section({ name, title, description, children, alt }) {
+function Section({ name, title, children, alt }) {
   return (
     <section id={slug(name)} className={`py-20 md:py-28 ${alt ? 'bg-slate-50' : ''}`}>
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mb-12 text-center">
           <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{title}</h2>
           <div className="mx-auto mt-4 h-1 w-14 rounded-full bg-accent" />
-          {description ? (
-            <p className="mx-auto mt-4 max-w-2xl text-slate-600">{description}</p>
-          ) : null}
         </Reveal>
         {children}
       </div>
@@ -575,6 +572,7 @@ export default function App() {
               period: item.periode,
               title: item.institusi,
               sub: item.jenjang,
+              desc: item.ipk ? `IPK ${item.ipk}` : null,
               icon: <GraduationCap className="h-5 w-5" aria-hidden="true" />,
             }))}
           />
@@ -632,11 +630,7 @@ export default function App() {
           </Reveal>
         </Section>
 
-        <Section
-          name="Certificates"
-          title="Certificates"
-          description={`${sertifikat.length} sertifikat dan pelatihan yang sudah saya selesaikan. Beberapa di antaranya punya tautan verifikasi yang bisa dibuka.`}
-        >
+        <Section name="Certificates" title="Certificates">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {sertifikat.map((s) => (
               <Reveal key={`${s.nama}-${s.tahun}`}>
