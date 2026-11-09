@@ -26,6 +26,7 @@ import {
   Layout,
   Map,
   Menu,
+  MessageSquareText,
   Network,
   NotebookPen,
   Palette,
@@ -109,6 +110,7 @@ const IKON_SKILL = {
 
 // Tampilan kartu proyek mengikuti desain: gradien + ikon besar.
 const TAMPILAN_PROYEK = {
+  beauty: { Icon: MessageSquareText, grad: 'from-fuchsia-400 to-pink-300' },
   diabetes: { Icon: HeartPulse, grad: 'from-rose-400 to-orange-300' },
   linkedin: { Icon: Banknote, grad: 'from-emerald-400 to-teal-300' },
   gambut: { Icon: Flame, grad: 'from-amber-400 to-red-400' },

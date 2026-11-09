@@ -114,6 +114,36 @@ export const pendidikan = [
 //         'repo' -> baru tersedia kode sumbernya
 export const proyek = [
   {
+    id: 'beauty',
+    nama: 'Beauty Review Helpfulness: BERT vs DistilBERT',
+    kategori: 'NLP · Transformer · E-Commerce',
+    tahun: '2026',
+    status: 'repo',
+    ringkas:
+      'Perbandingan BERT dan DistilBERT untuk memprediksi apakah ulasan e-commerce beauty tergolong membantu, dengan fokus pada trade-off akurasi dan efisiensi.',
+    detail:
+      'Penelitian klasifikasi biner review helpfulness pada domain Beauty dari dataset Amazon Reviews 2023: 473.823 ulasan dibersihkan, lalu diseimbangkan menjadi 50.000 ulasan (25.000 helpful dan 25.000 not helpful) dengan ambang helpful_vote > 2. Dua model Transformer dilatih dengan konfigurasi identik — 2 epoch, learning rate 2e-5, batch 16, max_len 256 — lalu dibandingkan dari sisi F1, akurasi, AUC, waktu training, latency inferensi, dan ukuran model. BERT unggul tipis (F1 0,698 vs 0,694; AUC 0,776 vs 0,774), sedangkan DistilBERT 39% lebih kecil (255 MB vs 418 MB) dan sekitar 1,09x lebih cepat. Selisih performa yang hanya 0,4% membuat DistilBERT tetap layak dipilih saat throughput dan keterbatasan sumber daya jadi prioritas.',
+    metrik: [
+      { nilai: '50.000', label: 'ulasan diseimbangkan' },
+      { nilai: '0,698', label: 'F1-Score BERT' },
+      { nilai: '0,694', label: 'F1-Score DistilBERT' },
+      { nilai: '39%', label: 'DistilBERT lebih kecil' },
+    ],
+    stack: [
+      'Python',
+      'PyTorch',
+      'Hugging Face Transformers',
+      'BERT',
+      'DistilBERT',
+      'Scikit-Learn',
+      'pandas',
+      'Matplotlib',
+      'Seaborn',
+    ],
+    repo: 'https://github.com/ihsarfatiha/beauty-review-helpfulness-bert-distilbert',
+    demo: null,
+  },
+  {
     id: 'diabetes',
     nama: 'Diabetes Risk Classification',
     kategori: 'Machine Learning · Kesehatan',
