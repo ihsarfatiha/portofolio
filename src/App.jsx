@@ -593,13 +593,27 @@ export default function App() {
                 <Reveal key={p.id}>
                   <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-md shadow-slate-200/60 transition hover:-translate-y-1 hover:shadow-xl">
                     <div
-                      className={`flex aspect-[16/10] items-center justify-center bg-gradient-to-br ${tampilan.grad}`}
+                      className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${tampilan.grad}`}
                     >
-                      <Icon
-                        className="h-14 w-14 text-white/90 transition group-hover:scale-110"
-                        strokeWidth={1.5}
-                        aria-hidden="true"
-                      />
+                      {p.gambar ? (
+                        <img
+                          src={p.gambar}
+                          alt={`Pratinjau proyek ${p.nama}`}
+                          width={1600}
+                          height={1000}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center">
+                          <Icon
+                            className="h-14 w-14 text-white/90 transition group-hover:scale-110"
+                            strokeWidth={1.5}
+                            aria-hidden="true"
+                          />
+                        </div>
+                      )}
                     </div>
 
                     <div className="flex flex-1 flex-col justify-between gap-5 p-6">

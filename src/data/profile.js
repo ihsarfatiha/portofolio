@@ -119,6 +119,7 @@ export const proyek = [
     kategori: 'NLP · Transformer · E-Commerce',
     tahun: '2026',
     status: 'repo',
+    gambar: 'proyek/beauty.webp',
     ringkas:
       'Perbandingan BERT dan DistilBERT untuk memprediksi apakah ulasan e-commerce beauty tergolong membantu, dengan fokus pada trade-off akurasi dan efisiensi.',
     detail:
@@ -149,6 +150,7 @@ export const proyek = [
     kategori: 'Machine Learning · Kesehatan',
     tahun: '2026',
     status: 'repo',
+    gambar: 'proyek/diabetes.webp',
     ringkas:
       'Perbandingan empat model untuk skrining risiko diabetes pada 253.680 rekam medis yang sangat tidak seimbang.',
     detail:
@@ -169,6 +171,7 @@ export const proyek = [
     kategori: 'Big Data · NLP',
     tahun: '2026',
     status: 'live',
+    gambar: 'proyek/linkedin.webp',
     ringkas:
       'Pipeline PySpark end-to-end untuk memprediksi gaji dan mengklasifikasikan jenis kerja dari 123.849 lowongan LinkedIn.',
     detail:
@@ -197,6 +200,7 @@ export const proyek = [
     kategori: 'Machine Learning · GIS',
     tahun: '2026',
     status: 'live',
+    gambar: 'proyek/peatland.webp',
     ringkas:
       'Sistem peringatan dini dua tugas untuk lahan gambut Sumatera dan Kalimantan, dari data satelit sampai peta risiko provinsi.',
     detail:
@@ -233,6 +237,7 @@ export const proyek = [
     kategori: 'Web App · Laravel',
     tahun: '2025',
     status: 'live',
+    gambar: 'proyek/itagarage.webp',
     ringkas:
       'Aplikasi sewa kendaraan full-stack dengan Laravel: armada, reservasi, dasbor admin, dan pembayaran.',
     detail:
@@ -248,6 +253,7 @@ export const proyek = [
     kategori: 'GIS · Web App · Konservasi',
     tahun: '2026',
     status: 'repo',
+    gambar: 'proyek/webgis.webp',
     ringkas:
       'Dasbor peta interaktif untuk memantau zonasi konservasi 37 situs candi, lengkap dengan buffer kerentanan 500 m dan 1 km.',
     detail:
