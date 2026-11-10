@@ -543,7 +543,11 @@ export default function App() {
                 </a>
 
                 {belum(profil.cv) ? null : (
-                  <a href={profil.cv} download className={btnSecondary}>
+                  <a
+                    href={profil.cv}
+                    download="CV - Muhammad Ihsar Fatiha.pdf"
+                    className={btnSecondary}
+                  >
                     <Download className="h-4 w-4" aria-hidden="true" />
                     Download CV
                   </a>
