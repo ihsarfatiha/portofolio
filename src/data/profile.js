@@ -83,13 +83,17 @@ export const keahlian = [
       { nama: 'PHP', logo: 'php' },
       { nama: 'Laravel', logo: 'laravel' },
       { nama: 'JavaScript', logo: 'javascript' },
+      { nama: 'TypeScript', logo: 'typescript' },
+      { nama: 'React', logo: 'react' },
+      { nama: 'Next.js', logo: 'nextdotjs' },
+      { nama: 'NestJS', logo: 'nestjs' },
+      { nama: 'PostgreSQL', logo: 'postgresql' },
       { nama: 'HTML', logo: 'html5' },
       { nama: 'CSS', logo: 'css' },
     ],
   },
 ]
 
-// Diurutkan dari yang paling baru.
 export const pendidikan = [
   {
     periode: '2023 — Sekarang',
@@ -110,9 +114,72 @@ export const pendidikan = [
   },
 ]
 
+// Diurutkan dari proyek yang paling menonjol.
 // status: 'live' -> ada demo daring
 //         'repo' -> baru tersedia kode sumbernya
 export const proyek = [
+  {
+    id: 'sokudo',
+    nama: 'Sokudo - Multi Vendor Marketplace',
+    kategori: 'Web App · Full-Stack · Marketplace',
+    tahun: '2026',
+    status: 'live',
+    gambar: 'proyek/sokudo.webp',
+    ringkas:
+      'Marketplace multi-vendor dengan storefront Next.js, panel admin, dan REST API NestJS dalam satu monorepo TypeScript.',
+    detail:
+      'Marketplace multi-vendor yang saya bangun sebagai satu monorepo TypeScript: storefront Next.js 14 untuk pembeli, panel admin Next.js, dan REST API NestJS di atas PostgreSQL + Prisma. Storefront mencakup katalog, pencarian, keranjang, checkout tamu, pelacakan pesanan, dan autentikasi; panel admin menangani pengguna, KYC seller, pesanan lintas toko, GMV dan komisi, sengketa, serta pengaturan platform. Saat API tidak berjalan, storefront dan admin otomatis beralih ke data demo lokal supaya UI tetap bisa dipresentasikan. Pembayaran masih simulasi, dan guard role untuk endpoint admin masih dalam pengerjaan.',
+    metrik: [
+      { nilai: '3', label: 'aplikasi dalam monorepo' },
+      { nilai: '7', label: 'modul admin' },
+      { nilai: '18', label: 'produk seed' },
+      { nilai: '7', label: 'toko terverifikasi' },
+    ],
+    stack: [
+      'Next.js 14',
+      'React',
+      'TypeScript',
+      'NestJS',
+      'PostgreSQL',
+      'Prisma',
+      'Tailwind CSS',
+      'Redis',
+      'Docker',
+    ],
+    repo: 'https://github.com/ihsarfatiha/sokudo',
+    demo: 'https://sokudo.vercel.app/',
+  },
+  {
+    id: 'fraud',
+    nama: 'Credit Card Fraud Detection',
+    kategori: 'Machine Learning · Fintech · MLOps',
+    tahun: '2026',
+    status: 'repo',
+    gambar: 'proyek/fraud.webp',
+    ringkas:
+      'Pipeline deteksi fraud end-to-end yang memilih threshold dari biaya bisnis, bukan akurasi, lengkap dengan REST API dan dashboard.',
+    detail:
+      'Pipeline end-to-end atas 283.726 transaksi setelah deduplikasi, dengan 473 fraud (0,167%). Split stratified dilakukan sebelum transformasi apa pun, lalu Logistic Regression, LightGBM, dan XGBoost dibandingkan lewat Optuna 40 trial dengan objective OOF average precision. Model dikalibrasi dan threshold tidak dipatok 0,5: nilainya dipilih untuk meminimalkan expected cost dengan pagar precision minimal 0,90. XGBoost terpilih dengan PR-AUC uji 0,8168, recall 0,7579, precision 0,9863, dan net benefit USD 10.716,51. SHAP TreeExplainer menjelaskan setiap keputusan dalam bahasa Indonesia, disajikan lewat FastAPI dan dashboard Streamlit.',
+    metrik: [
+      { nilai: '283.726', label: 'transaksi dianalisis' },
+      { nilai: '0,8168', label: 'PR-AUC uji' },
+      { nilai: '0,9863', label: 'precision model terpilih' },
+      { nilai: '$10.716', label: 'net benefit' },
+    ],
+    stack: [
+      'Python',
+      'XGBoost',
+      'LightGBM',
+      'Optuna',
+      'SHAP',
+      'FastAPI',
+      'Streamlit',
+      'Scikit-Learn',
+      'Docker',
+    ],
+    repo: 'https://github.com/ihsarfatiha/credit-card-fraud-detection',
+    demo: null,
+  },
   {
     id: 'beauty',
     nama: 'Beauty Review Helpfulness: BERT vs DistilBERT',
@@ -232,22 +299,6 @@ export const proyek = [
     demo: 'https://peatland-fire-prediction-dashboard.netlify.app/',
   },
   {
-    id: 'itagarage',
-    nama: 'Vehicle Rental Web Application',
-    kategori: 'Web App · Laravel',
-    tahun: '2025',
-    status: 'live',
-    gambar: 'proyek/itagarage.webp',
-    ringkas:
-      'Aplikasi sewa kendaraan full-stack dengan Laravel: armada, reservasi, dasbor admin, dan pembayaran.',
-    detail:
-      'Platform sewa kendaraan full-stack dengan Laravel, dikerjakan sendiri dari desain basis data sampai antarmuka. Mencakup autentikasi pengguna, pengelolaan armada, pemesanan dan reservasi, dasbor admin, serta penanganan pembayaran — satu siklus utuh dari pelanggan sampai admin.',
-    metrik: null,
-    stack: ['PHP', 'Laravel', 'MySQL', 'Blade'],
-    repo: 'https://github.com/ihsarfatiha/ITAGarage---website-sewa-kendaraan',
-    demo: 'https://ihsarfatiha.github.io/ITAGarage---website-sewa-kendaraan/',
-  },
-  {
     id: 'webgis',
     nama: 'WebGIS Zonasi Konservasi Situs Purbakala',
     kategori: 'GIS · Web App · Konservasi',
@@ -266,6 +317,27 @@ export const proyek = [
     ],
     stack: ['Python', 'Streamlit', 'GeoPandas', 'Folium', 'GeoJSON', 'QGIS'],
     repo: 'https://github.com/ihsarfatiha/webgis-purbakala',
+    demo: null,
+  },
+  {
+    id: 'fruits',
+    nama: 'Deteksi Buah Real-Time dengan YOLOv8',
+    kategori: 'Computer Vision · Object Detection',
+    tahun: '2026',
+    status: 'repo',
+    gambar: 'proyek/fruits.webp',
+    ringkas:
+      'Model YOLOv8s untuk mendeteksi enam jenis buah secara real-time dari webcam, video, atau gambar.',
+    detail:
+      'Model deteksi objek YOLOv8s yang dilatih khusus untuk enam kelas buah — Apple, Banana, Grape, Orange, Pineapple, dan Watermelon. Repo berisi skrip training, evaluasi, dan inferensi real-time dari webcam, video, atau gambar, lengkap dengan kurva PR/F1, confusion matrix, dan laporan akademik. Pada validasi 10 epoch, mAP50 mencapai 0,395 dengan precision 0,537 dan recall 0,384 — cukup untuk prototipe deteksi real-time, dan masih bisa ditingkatkan dengan dataset serta epoch yang lebih besar.',
+    metrik: [
+      { nilai: '6', label: 'kelas buah' },
+      { nilai: '10', label: 'epoch training' },
+      { nilai: '0,395', label: 'mAP50 validasi' },
+      { nilai: '40 FPS', label: 'inferensi webcam' },
+    ],
+    stack: ['Python', 'YOLOv8', 'Ultralytics', 'PyTorch', 'OpenCV'],
+    repo: 'https://github.com/ihsarfatiha/Fruits-detection',
     demo: null,
   },
 ]

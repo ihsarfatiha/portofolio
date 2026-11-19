@@ -1,12 +1,13 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import {
+  Apple,
+  Atom,
   Award,
   Banknote,
   BarChart3,
   Braces,
   BrainCircuit,
-  Car,
   ChartLine,
   ChartSpline,
   Cloud,
@@ -23,6 +24,7 @@ import {
   GraduationCap,
   Grid3x3,
   HeartPulse,
+  Layers,
   Layout,
   Map,
   Menu,
@@ -32,6 +34,8 @@ import {
   Palette,
   Send,
   Server,
+  ShieldAlert,
+  ShoppingBag,
   Table2,
   Terminal,
   X,
@@ -106,16 +110,23 @@ const IKON_SKILL = {
   MySQL: Cylinder,
   QGIS: Map,
   'Google Earth Engine': Globe,
+  TypeScript: Braces,
+  React: Atom,
+  'Next.js': Layers,
+  NestJS: Server,
+  PostgreSQL: Database,
 }
 
 // Tampilan kartu proyek mengikuti desain: gradien + ikon besar.
 const TAMPILAN_PROYEK = {
+  sokudo: { Icon: ShoppingBag, grad: 'from-violet-400 to-indigo-400' },
+  fraud: { Icon: ShieldAlert, grad: 'from-indigo-400 to-blue-400' },
   beauty: { Icon: MessageSquareText, grad: 'from-fuchsia-400 to-pink-300' },
   diabetes: { Icon: HeartPulse, grad: 'from-rose-400 to-orange-300' },
   linkedin: { Icon: Banknote, grad: 'from-emerald-400 to-teal-300' },
   gambut: { Icon: Flame, grad: 'from-amber-400 to-red-400' },
-  itagarage: { Icon: Car, grad: 'from-sky-400 to-indigo-400' },
   webgis: { Icon: Map, grad: 'from-teal-400 to-cyan-300' },
+  fruits: { Icon: Apple, grad: 'from-lime-400 to-emerald-300' },
 }
 
 const btnPrimary =
