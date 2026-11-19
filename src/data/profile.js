@@ -320,6 +320,22 @@ export const proyek = [
     demo: null,
   },
   {
+    id: 'itagarage',
+    nama: 'ITAGarage - Vehicle Rental Web Application',
+    kategori: 'Web App · Laravel',
+    tahun: '2025',
+    status: 'live',
+    gambar: 'proyek/itagarage.webp',
+    ringkas:
+      'Aplikasi sewa kendaraan full-stack dengan Laravel: armada, reservasi, dasbor admin, dan pembayaran.',
+    detail:
+      'Platform sewa kendaraan full-stack dengan Laravel, dikerjakan sendiri dari desain basis data sampai antarmuka. Mencakup autentikasi pengguna, pengelolaan armada, pemesanan dan reservasi, dasbor admin, serta penanganan pembayaran — satu siklus utuh dari pelanggan sampai admin.',
+    metrik: null,
+    stack: ['PHP', 'Laravel', 'MySQL', 'Blade'],
+    repo: 'https://github.com/ihsarfatiha/ITAGarage---website-sewa-kendaraan',
+    demo: 'https://itagarage-sewa-kendaraan.vercel.app/',
+  },
+  {
     id: 'fruits',
     nama: 'Deteksi Buah Real-Time dengan YOLOv8',
     kategori: 'Computer Vision · Object Detection',

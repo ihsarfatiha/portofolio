@@ -8,6 +8,7 @@ import {
   BarChart3,
   Braces,
   BrainCircuit,
+  Car,
   ChartLine,
   ChartSpline,
   Cloud,
@@ -126,6 +127,7 @@ const TAMPILAN_PROYEK = {
   linkedin: { Icon: Banknote, grad: 'from-emerald-400 to-teal-300' },
   gambut: { Icon: Flame, grad: 'from-amber-400 to-red-400' },
   webgis: { Icon: Map, grad: 'from-teal-400 to-cyan-300' },
+  itagarage: { Icon: Car, grad: 'from-sky-400 to-indigo-400' },
   fruits: { Icon: Apple, grad: 'from-lime-400 to-emerald-300' },
 }
 
